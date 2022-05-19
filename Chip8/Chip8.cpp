@@ -2,14 +2,20 @@
 #include <fstream>
 #include "Chip8.h"
 
-
-
-Chip8::Chip8()
-{
-	//initialise le pc
-	pc = Chip8::START_ADDRESS;
+	Chip8::Chip8():randGen(std::chrono::system_clock::now().time_since_epoch().count())
+	{
+		//initialise le pc
+		pc = Chip8::START_ADDRESS;
 	
-}
+		// charge les polices dans la mémoire
+		for (unsigned int i = 0; i < FONTSET_SIZE; i++)
+		{
+			memory[FONTSET_START_ADDRESS + i] = fontset[i];
+		}
+
+		//Initialise le RNG
+		randByte =std::uniform_int_distribution<uint8_t>(0,255U);
+	}
 
 Chip8::~Chip8()
 {
@@ -40,6 +46,19 @@ void Chip8::LoadROM(char const* filename)
 		// libere le buffer
 		delete[] buffer;
 	}
+}
+
+//clear screen
+void Chip8::OP_00E0()
+{
+	memset(video, 0, sizeof video);
+}
+
+//return from a subroutine
+void Chip8::OP_00EE()
+{
+	--sp;
+	pc = stack[sp];
 }
 
 

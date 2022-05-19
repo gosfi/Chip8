@@ -1,2 +1,10 @@
-﻿  source.cpp
-  Chip8.vcxproj -> D:\dev\c++\Chip8\Debug\Chip8.exe
+﻿  Chip8.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Preview\VC\Tools\MSVC\14.33.31424\include\random(1908,5): error C2338: static_assert failed: 'invalid template argument for uniform_int_distribution: N4659 29.6.1.1 [rand.req.genl]/1e requires one of short, int, long, long long, unsigned short, unsigned int, unsigned long, or unsigned long long'
+D:\dev\c++\Chip8\Chip8\Chip8.h(50): message : see reference to class template instantiation 'std::uniform_int_distribution<uint8_t>' being compiled
+C:\Program Files\Microsoft Visual Studio\2022\Preview\VC\Tools\MSVC\14.33.31424\include\random(1908,5): error C2338: static_assert failed: 'note: char, signed char, unsigned char, char8_t, int8_t, and uint8_t are not allowed'
+D:\dev\c++\Chip8\Chip8\Chip8.cpp(5,82): warning C4244: 'argument': conversion from '_Rep' to 'unsigned int', possible loss of data
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+D:\dev\c++\Chip8\Chip8\Chip8.cpp(33,27): warning C4244: 'initializing': conversion from 'std::streamoff' to 'unsigned int', possible loss of data
