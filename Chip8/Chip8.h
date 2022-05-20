@@ -47,6 +47,7 @@ public:
 	void LoadROM(char const* filename);
 	void OP_00E0();
 	void OP_00EE();
+	void OP_1nnn();
 	std::default_random_engine randGen;
 	std::uniform_int_distribution<uint8_t> randByte;
 };
